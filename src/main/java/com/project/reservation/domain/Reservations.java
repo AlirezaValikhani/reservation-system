@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "reservations", schema = "new")
+@Table(name = "reservations", schema = "reservation")
 public class Reservations {
 
     @Id
