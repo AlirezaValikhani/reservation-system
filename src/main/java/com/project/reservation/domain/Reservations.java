@@ -18,6 +18,18 @@ public class Reservations {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_id", nullable = false)
-    private Long userId;
+    @ManyToOne
+    @JoinColumn(name = "user_id",
+            foreignKey = @ForeignKey(name = "reservations_user_fk"))
+    private User user;
+
+    @OneToOne
+    @JoinColumn(name = "available_slot_id",
+            foreignKey = @ForeignKey(name = "reservations_available_slots_fk"))
+    private AvailableSlots availableSlots;
+
+    public Reservations(User user, AvailableSlots availableSlots) {
+        this.user = user;
+        this.availableSlots = availableSlots;
+    }
 }

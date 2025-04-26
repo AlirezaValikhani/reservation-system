@@ -13,7 +13,10 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "available_slots", schema = "reservation")
+@Table(name = "available_slots",
+        schema = "reservation",
+        indexes = {@Index(name = "start_time_and_is_reserve_indexes",
+                columnList = "start_time, is_reserved")})
 public class AvailableSlots {
 
     @Id
